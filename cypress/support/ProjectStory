@@ -1,0 +1,29 @@
+//     Test response option pinning
+// Our platform enables customers to gather public sentiment information in a self-serve manner.
+// Which means that the customer can create an account on our platform and then:
+
+// ·  decide what Audience they target (ex: Ages 18-55, Location, Household income, Mobile carrier, etc)
+// ·  decide what questions to ask the audience targeted above
+
+// ·  decide when to start the data collection
+
+// An important step of this process is deciding the questions to ask and this is a delicate process that requires knowledge of how a respondent (people answering the survey) can be biased by the structure or content of a question. Two questions that seem identical may differ in subtle ways that can make the response differ.
+
+// The platform offers several types of questions. Each type has its own structure (Slider is very different than Matrix)
+// but some have things in common. Single/Multiple choice and Matrix all have Response Options, for example.
+
+
+ 
+// There are other things that are common between all question types, like the ability to add display logic to hide or show a 
+// question based on the answers to a question above, or the ability to add media to a question to offer more context to the respondent.
+
+// There are also ways to configure response options. A response option can have display logic itself that works similarly to the 
+//question level one, it can be configured to be exclusive or to show a free text entry when selected. You can play around with these features to get a sense of the functionality.
+
+ 
+
+// For the task ahead, some questions require the randomisation of response option positions. This is so we don't always have the most common answer in the first position.
+
+// In the case of a question with randomised response options, there are cases when the customer wants to 'pin' a response option 
+//in a certain position. For example, a response option that says Don't know makes sense at the end of the list even if
+// the rest of the list is randomised.
