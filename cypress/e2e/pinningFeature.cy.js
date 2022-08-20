@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+import { dataFocal, selectorFocal } from "../config/data/focalData";
+import { focalDataPage } from "../pages/FocalDataPage"
+
 describe('FOCALDATA', () => {
   it('donoyet', () => {
 
@@ -29,21 +32,34 @@ describe('FOCALDATA', () => {
 // ·  You can use anything for the test plan, and using Cucumber (or other Gherkin specs) is accepted
 
 // ·  We should be able to run your tests on our machines and the documentation should contain the steps needed to run them
-    //Visit website
-    cy.visit('/')
-    //Insert email in email field
-    cy.get('[aria-label="Input"]').type('florincucos93@gmail.com')
-    //insert password in paswword field
-    cy.get('[aria-label="Password input"]').type('Parolabuna0')
-    //click on Login
-    cy.get('#root > div > div > div > div > form > div > div:nth-child(5)').click()
-    //click on first Draft
-    cy.get('[href="/survey/3438a519-7137-479c-8ef3-bb5ec0d8fbcc/audience"]').click()
-    //click on Survey
-    cy.get('#root > div > div > div.MuiGrid-root.MuiGrid-container.MuiGrid-direction-xs-column.mui-cache-1wkwmmc > div.MuiGrid-root.MuiGrid-container.tss-173m74h-shadow.mui-cache-1b1jvye > div.MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-grid-xs-4.mui-cache-qx4sdb > nav > ol > li:nth-child(3) > button > p').click()
-    //get and store pin value
-    cy.get('[aria-label="Unpin response option"]').invoke('attr', 'value').as('@pinnedText')
-    //
+    
+//Visit website
+   focalDataPage.visitSite();
 
+    //Insert email in email field
+    focalDataPage.insertEmailToLogin(selectorFocal.emailBox, dataFocal.myUserEmail)
+
+    //insert password in paswword field
+    focalDataPage.insertPasswordToLogin(selectorFocal.passBox, dataFocal.myUserPass);
+
+    //click on Login and assert Login Successfull
+    focalDataPage.clickLogin(selectorFocal.loginButton);
+    
+
+    //click on first Draft and verify if clicked
+    focalDataPage.clickOnDraft(selectorFocal.firstDraft);
+ 
+    // //click on Survey
+    focalDataPage.clickOnSurvey();
+    
+    // get and store pin value
+    focalDataPage.storePinValue();
+  
+    //get pin index
+    focalDataPage.storePinIndex();
+
+    //get index of all or unpinned q
+    focalDataPage.storeQuestionsIndex();
+    focalDataPage.storeEachQuestionsIndex();
   })
 })
