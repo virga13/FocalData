@@ -60,6 +60,6 @@ describe('FOCALDATA', () => {
 
     //get index of all or unpinned q
     focalDataPage.storeQuestionsIndex();
-    focalDataPage.storeEachQuestionsIndex();
+    // focalDataPage.storeEachQuestionsIndex();
   })
 })

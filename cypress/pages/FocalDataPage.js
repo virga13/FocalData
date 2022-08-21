@@ -34,21 +34,33 @@ export class FocalDataPage{
     };
 
     storePinIndex(){
-        cy.get('[aria-label="Unpin response option"]').invoke('index').as('pinnedIndex')
+        cy.get('[aria-label="Unpin response option"]').invoke('show').as('pinnedIndex')
         cy.log()
     };
 
     storeQuestionsIndex(){
-        cy.get('.tss-1jh9npg-grid-gridItem').parent().each($index) 
-            cy.invoke(index);
-    };
+         cy.get('.tss-1jh9npg-grid-gridItem')
+         .each(($el, index) => {
+            if (index < 4) {
+                if (focalDataPage.storePinIndex != index) {
+                    cy.log(this.storePinIndex)
+                }
+                cy.get('.tss-1jh9npg-grid-gridItem')
+                .invoke('index')
+                cy.log(index)
+            }
+            cy.wrap($el).as('Question' + (index + 1))
 
-    storeEachQuestionsIndex(){
-    cy.get('[aria-label="Unpin response option"]').each(($ele, index) => {
-        if ($ele.text().includes('a')) {
-         cy.log(index) //logs the index
-    }});
-    };
+         })
+             
+     };
+
+    // storeEachQuestionsIndex(){
+    // cy.get('[aria-label="Unpin response option"]').each(() => {
+    //     if ($ele.text().includes('a')) {
+    //      cy.log() //logs the index
+    // }});
+    
 
 
 
