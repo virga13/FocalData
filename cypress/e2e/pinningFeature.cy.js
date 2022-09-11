@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+
 import { dataFocal, selectorFocal } from "../config/data/focalData";
 import { focalDataPage } from "../pages/FocalDataPage"
 
@@ -34,32 +35,39 @@ describe('FOCALDATA', () => {
 // ·  We should be able to run your tests on our machines and the documentation should contain the steps needed to run them
     
 //Visit website
-   focalDataPage.visitSite();
-
-    //Insert email in email field
-    focalDataPage.insertEmailToLogin(selectorFocal.emailBox, dataFocal.myUserEmail)
-
-    //insert password in paswword field
-    focalDataPage.insertPasswordToLogin(selectorFocal.passBox, dataFocal.myUserPass);
-
-    //click on Login and assert Login Successfull
-    focalDataPage.clickLogin(selectorFocal.loginButton);
+focalDataPage.visitSite();
     
+//Insert email in email field
+focalDataPage.insertEmailToLogin(selectorFocal.emailBox, dataFocal.myUserEmail)
 
-    //click on first Draft and verify if clicked
-    focalDataPage.clickOnDraft(selectorFocal.firstDraft);
- 
-    // //click on Survey
-    focalDataPage.clickOnSurvey();
-    
-    // get and store pin value
-    focalDataPage.storePinValue();
+//insert password in paswword field
+focalDataPage.insertPasswordToLogin(selectorFocal.passBox, dataFocal.myUserPass);
+
+//click on Login and assert Login Successfull
+focalDataPage.clickLogin(selectorFocal.loginButton);
+
+//click on first Draft and verify if clicked
+focalDataPage.clickOnDraft(selectorFocal.firstDraft);
+
+// //click on Survey
+focalDataPage.clickOnSurvey();
+
+// get and store pin value
+focalDataPage.storePinValue();
   
-    //get pin index
-    focalDataPage.storePinIndex();
+//get pin index
+focalDataPage.storePinIndex();
+ 
+//get index of all or unpinned q
+//  focalDataPage.storeQuestionsIndex();
+ 
+    // cy.login();
+    // cy.clickDraft();
+    // cy.clickSurvey();
+    // cy.getAndStoreQuestionsIndex();
 
-    //get index of all or unpinned q
-    focalDataPage.storeQuestionsIndex();
     // focalDataPage.storeEachQuestionsIndex();
+
+
   })
 })
